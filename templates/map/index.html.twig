@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="../assets/styles/carte.css">
+{% endblock %}
+
+{% block nav %}
+<div class="nav">
+    <!-- Icone de Hamburger -->
+    <div class="hamburger-container">
+        <button class="hamburger" id="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Liens de navigation -->
+    <div class="nav-links-container">
+        <div class="nav-links">
+            <a href="{{ path('accueil') }}" class="nav-link"><i class="bi bi-house"></i></a>
+            <a href="{{ path('carte') }}" class="nav-link"><i class="bi bi-geo-alt"></i></a>
+            <a href="{{ path('app_forum_sujet_index') }}" class="nav-link"><i class="bi bi-chat-dots"></i></a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin') }}" class="nav-link"><i class="bi bi-gear"></i></a>
+            {% endif %}
+            <a href="{{ path('app_login') }}" class="nav-link"><i class="bi bi-box-arrow-in-left"></i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block title %}Map{% endblock %}
+
+{% block body %}
+<div class="map">
+    {% if is_granted('ROLE_USER') %}
+    <div id="actions-container">
+        <a href="{{ path('app_marqueur_index') }}" class="action-btn">Ajouter un lieu</a>
+        <a href="{{ path('app_parcours_index') }}" class="action-btn">Créer un parcours</a>
+    </div>
+    {% endif %}
+    
+    <!-- afficher la carte -->
+    <div id="carte"></div>
+
+    <div id="parcours-container">
+        <ul id="parcours-list">
+            {% if parcours is not empty %}
+                {% for parcourss in parcours %}
+                    <li>
+                        <h4>{{ parcourss.nom }}</h4>
+                        {% if parcourss.marqueurs is not empty %}
+                        <a href="#" class="zoom btn_show2" data-lat="{{ parcourss.marqueurs|first.latitude }}" data-lng="{{ parcourss.marqueurs|first.longitude }}">
+                            📍 Voir le départ</a><br>
+                        <a href="#" class="zoom btn_show2" data-lat="{{ parcourss.marqueurs|last.latitude }}" data-lng="{{ parcourss.marqueurs|last.longitude }}">
+                            🏁 Voir l'arrivée</a>
+                        {% else %}
+                        🚫 Aucune information sur le parcours.
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            {% else %}
+            <li>Aucun parcours trouvé.</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <!-- importer le fichier js pour la carte-->
+    <script src="{{ asset('js/script.js') }}"></script>
+    <!-- la clé api -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoEhsbrYlLG5Wcm7fNmnW6NuUcjszHT3Q&callback=initMap"></script>
+</div>
+{% endblock %}

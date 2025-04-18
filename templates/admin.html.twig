@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/forum.css">
+{% endblock %}
+
+{% block title %}Admin{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('app_login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="containeradmin">
+    <h1>{{ titre }}</h1>
+    <p class="description">Bienvenue sur votre tableau de bord administrateur ! Depuis cette interface, vous pouvez gérer les utilisateurs en activant ou désactivant leurs comptes, modifier ou supprimer des itinéraires, et modérer les commentaires du forum pour assurer une expérience optimale à la communauté.</p>
+    <div class="bouttonss">
+        <a class="boutongerer1" href="{{ path('app_parcours_index') }}"><i class="bi bi-gear" style="padding-right: 5px;" ></i>Gérer les parcours</a>
+        <a class="boutongerer2" href="{{ path('app_marqueur_index') }}"><i class="bi bi-gear" style="padding-right: 5px;" ></i>Gérer les marqueurs</a>
+        <a class="boutongerer3" href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-gear" style="padding-right: 5px;"></i>Gérer le forum</a>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<div class="footer">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

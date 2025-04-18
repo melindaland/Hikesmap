@@ -1,0 +1,6 @@
+<form class="delete" method="post" action="{{ path('app_marqueur_delete', {'id': marqueur.id}) }}" onsubmit="return confirm('Etes vous sur que vous voulez supprimer ce marqueur?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ marqueur.id) }}">
+    {% if is_granted('ROLE_ADMIN') %}
+    <button class="btn delete2" class="btn"><i class="bi bi-trash"></i></button>
+    {% endif %}
+</form>

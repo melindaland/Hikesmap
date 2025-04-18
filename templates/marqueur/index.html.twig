@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marqueurs{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/marqueur.css">
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a> 
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+<h1>Gérer les marqueurs</h1>
+
+<table class="table">
+        <ul class="marque">
+            <li class="marqueid">Id</li>
+            <li class="marquelat">Latitude</li>
+            <li class="marquelon">Longitude</li>
+            <li class="marquetitre">Titre</li>
+            <li class="marquedesc">Description</li>
+            <li class="marqueimg">Image</li>
+            <li class="marqueaction">Actions</li>
+        </ul>
+    <tbody>
+        {% for marqueur in marqueurs %}
+        <ul class="marque2">
+            <li class="marqueid">{{ marqueur.id }}</li>
+            <li class="marquelat">{{ marqueur.latitude }}</li>
+            <li class="marquelon">{{ marqueur.longitude }}</li>
+            <li class="marquetitre">{{ marqueur.titre }}</li>
+            <li class="marquedesc">{{ marqueur.description }}</li>
+            <li class="marqueimg"><img class="imag" src="{{ marqueur.image }}" alt="Image"></li>
+            <li class="trrboutonn">
+                <a class="trbouton" href="{{ path('app_marqueur_show', {'id': marqueur.id}) }}"><i class="bi bi-eye"></i></a>
+                <a class="trbouton" href="{{ path('app_marqueur_edit', {'id': marqueur.id}) }}"><i class="bi bi-pencil-square"></i></a>
+            </li>
+        </ul>
+        {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn-new-discussion" href="{{ path('app_marqueur_new') }}"><i class="bi bi-plus"></i>Créer un nouveau marqueur</a>
+{% endblock %}
+
+
+{% block footer %}
+<div class="foot">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

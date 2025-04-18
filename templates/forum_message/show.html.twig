@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ForumMessage{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/forum.css">
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Message forum</h1>
+
+    <div class="forummessage">
+        <ul class="ulli">
+            <li>Id</li>
+            <li>{{ forum_message.id }}</li>
+        </ul>
+        <ul class="ulli">
+            <li>Message</li>
+            <li>{{ forum_message.message }}</li>
+        </ul>
+        <ul class="ulli">
+            <li>Date</li>
+            <li>{{ forum_message.date ? forum_message.date|date('Y-m-d H:i:s') : '' }}</li>
+        </ul>
+        <a class="btn" href="{{ path('app_forum_message_edit', {'id': forum_message.id}) }}">Modifier</a>
+        {{ include('forum_message/_delete_form.html.twig') }}
+    </div>
+
+    <a class="btn_show btn-primary_show" href="{{ path('app_forum_message_index') }}">Retour à la liste des messages</a>
+{% endblock %}
+
+{% block footer %}
+<div class="footer">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

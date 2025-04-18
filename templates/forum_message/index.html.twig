@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Messages du Forum{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/forum.css">
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('app_parcours_index') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+<h1>Tous les messages</h1>
+
+<div class="messagetab">
+        <ul class="ulmessagetab">
+            <li class="for1">Id</li>
+            <li class="for1">Message</li>
+            <li class="for1">Date</li>
+            <li class="for1">actions</li>
+        </ul>
+    <div>
+        {% for forum_message in forum_messages %}
+        <ul class="messagetable">
+            <li class="for">{{ forum_message.id }}</li>
+            <li class="for">{{ forum_message.message }}</li>
+            <li class="for">{{ forum_message.date ? forum_message.date|date('Y-m-d H:i:s') : '' }}</li>
+            <li class="for">
+                <a class="boutonmessage" href="{{ path('app_forum_message_show', {'id': forum_message.id}) }}"><i class="bi bi-eye"></i></a>
+                <a class="boutonmessage" href="{{ path('app_forum_message_edit', {'id': forum_message.id}) }}"><i class="bi bi-pencil-square"></i></a>
+            </li>
+        </ul>
+        {% else %}
+        <ul>
+            <li colspan="4">no records found</li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+
+<a class="add" href="{{ path('app_forum_message_new') }}"><i class="bi bi-plus"></i>Créer un nouveau message</a>
+<a class="btn_show btn-primary_show" href="{{ path('app_forum_sujet_index') }}">Retour au forum</a>
+
+{% endblock %}
+
+{% block footer %}
+<div class="foot">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

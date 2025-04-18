@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/connexion.css">
+{% endblock %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('app_login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+<form class="form" method="post">
+    {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+    <div class="logi">
+        Vous êtes connectés en tant que <strong>{{ app.user.userIdentifier }}</strong>, <a
+            href="{{ path('app_logout') }}">Logout</a>
+    </div>
+    {% else %}
+    <div class="logi">
+    Vous n'êtes pas connectés, <a href="{{ path('app_login') }}">Se connecter</a>
+    </div>
+    {% endif %}
+    <div class="containerco">
+        <h1 class="titre">Connectez-vous !</h1>
+        <div class="contentco">
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                autocomplete="email" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control"
+                autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button class="btn btn-lg btn-primary" type="submit">
+                Connexion
+            </button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block footer %}
+<div class="footer">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

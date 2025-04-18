@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum Sujet{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/forum.css">
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('app_parcours_index') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+<h1>Discussion</h1>
+<div class="sujetforum" style="margin-top:10px">
+    <div class="barre">
+        <p class="barre2">{{ forum_sujet.date ? forum_sujet.date|date('Y-m-d H:i:s') : '' }}</p>
+        <p>{{ forum_sujet.titre }}</p>
+        <a class="btn" href="{{ path('app_forum_sujet_edit', {'id': forum_sujet.id}) }}">Modifier le sujet de discussion</a>
+        {{ include('forum_sujet/_delete_form.html.twig') }}
+    </div>
+</div>
+
+<div class="forumsujet" style="margin-top:30px">
+    <div class="barre">
+        {% if messages is not empty %}
+        <ul class="ulforum">
+            {% for message in messages %}
+            <li class="liforum">
+                <strong>Utilisateur connecté</strong>
+                ({{ message.date|date('d/m/Y H:i') }}):
+                {{ message.message }}
+            </li>
+            
+            {% endfor %}
+            <a class="btn_show3 btn-primary_show2" href="{{ path('app_forum_message_index') }}"><i class="bi bi-eye"></i> Liste message</a>
+        </ul>
+        {% else %}
+        <p>Aucun message pour ce sujet.</p>
+        {% endif %}
+    </div>
+</div>
+<a class="btn_show3 btn-primary_show2" href="{{ path('app_forum_message_new') }}"><i class="bi bi-plus"></i>Nouveau message</a>
+
+<a class="btn_show btn-primary_show" href="{{ path('app_forum_sujet_index') }}">Retour au forum</a>
+
+
+{% endblock %}
+
+{% block footer %}
+<div class="foot">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

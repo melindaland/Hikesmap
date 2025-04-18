@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/accueil.css">
+{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<header>
+    <img class="logo" src="{{ asset('images/logo-401.png') }}" alt="Hikes Map Logo">
+</header>
+<div class="containeraccueil">
+    <p class="description">
+        Hikes Map est une plateforme interactive permettant aux utilisateurs de découvrir, créer et partager des
+        itinéraires géolocalisés, spécialement dédiés aux randonnées en Alsace.<br> Grâce à une carte interactive,
+        les randonneurs peuvent explorer divers itinéraires, consulter les descriptions
+        des lieux et échanger des avis avec la communauté de randonneurs.
+    </p>
+    <div class="buttons">
+        <a class="btnaccueil" href="{{ path('carte') }}"><i class="bi bi-geo-alt" style="padding-right: 5px;"></i>Accéder à la carte</a>
+        <a class="btnaccueil" href="{{ path('login') }}"><i class="bi bi-person" style="padding-right: 5px;"></i>Connexion</a>
+    </div>
+</div>
+
+<!-- importer le fichier js pour la page d'accueil-->
+<script src="{{ asset('js/accueil.js') }}"></script>
+
+{% endblock %}
+{% block footer %}
+<div class="footer">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

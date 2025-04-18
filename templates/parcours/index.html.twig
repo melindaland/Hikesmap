@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parcours{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/parcours.css">
+{% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+
+{% block body %}
+
+<h1>Gérer les parcours</h1>
+<div class="grand-conteneur">
+    <div class="tablee">
+        <ul class="noms">
+            <li class="nomid">Id</li>
+            <li class="nomnom">Nom</li>
+            <li class="nomdescription">Description</li>
+            <li class="nommarqueur">Marqueurs</li>
+            <li class="nomaction">Actions</li>
+        </ul>
+
+        <tbody>
+            {% for parcour in parcours %}
+                <ul class="trr">
+                    <li class="trrid">{{ parcour.id }}</li>
+                    <li class="trrnom">{{ parcour.nom }}</li>
+                    <li class="trrdescription">{{ parcour.description }}</li>
+                    <li class="trrlat">
+                        {% for marqueur in parcour.marqueurs %}
+                        <p>{{ marqueur.titre }} - {{ marqueur.latitude }}, {{ marqueur.longitude }}</p>
+                        {% else %}
+                        <p>No marqueurs</p>
+                        {% endfor %}
+                    </li>
+                    <li class="trrbouton">
+                        <a class="trbouton" href="{{ path('app_parcours_show', {'id': parcour.id}) }}"><i class="bi bi-eye" style="font-size:25px"></i></a>
+                        <a class="trbouton" href="{{ path('app_parcours_edit', {'id': parcour.id}) }}"><i class="bi bi-pencil-square" style="font-size:25px"></i></a>
+                    </li>
+                </ul>
+            {% else %}
+            <tr>
+                <td colspan="5">No records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </div>
+</div>
+
+
+<a class="btn-new-discussion" href="{{ path('app_parcours_new') }}"><i class="bi bi-plus"></i>Créer un nouveau parcours</a>
+{% endblock %}
+
+{% block footer %}
+<div class="foot">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}

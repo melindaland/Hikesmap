@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('app_forum_message_delete', {'id': forum_message.id}) }}" onsubmit="return confirm('Etes vous sur que vous voulez supprimer ce message ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ forum_message.id) }}">
+    {% if is_granted('ROLE_ADMIN') %}
+    <button class="btn"><i class="bi bi-trash"></i></button>
+    {% endif %}
+</form>

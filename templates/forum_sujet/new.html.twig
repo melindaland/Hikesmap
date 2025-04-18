@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="../assets/styles/forum.css">
+{% endblock %}
+{% block title %}Nouveau Sujet {% endblock %}
+
+{% block nav %}
+<nav>
+    <a href="{{ path('accueil') }}"><i class="bi bi-house"></i></a>
+    <a href="{{ path('carte') }}"><i class="bi bi-geo-alt"></i></a>
+    <a href="{{ path('app_forum_sujet_index') }}"><i class="bi bi-chat-dots"></i></a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin') }}"><i class="bi bi-gear"></i></a>
+    {% endif %}
+    <a href="{{ path('app_login') }}"><i class="bi bi-box-arrow-in-left"></i></a>
+</nav>
+{% endblock %}
+{% block body %}
+<h1>Ajouter un nouveau sujet</h1>
+<div class="forumsujet">
+    <div class="barre">
+        {{ include('forum_sujet/_form.html.twig') }}
+    </div>
+</div>
+<a class="btn_show btn-primary_show" href="{{ path('app_forum_sujet_index') }}">Retour au forum</a>
+{% endblock %}
+
+{% block footer %}
+<div class="foot">
+    <hr>
+    <p>Mentions légales - © 2025 - ALAND DRINNHAUSEN SCHMITT</p>
+</div>
+{% endblock %}
