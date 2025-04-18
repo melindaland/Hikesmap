@@ -1,0 +1,101 @@
+
+/* ADMIN */ 
+
+.containeradmin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.bouttonss {
+    margin-top: 80px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.boutongerer1 {
+    width: 30%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Meera Inimai", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    background-color: #7C7AED;
+    box-shadow: 6px 6px 0px #42358C;
+    border: none;
+    border-radius: 20px;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+}
+
+.boutongerer1:hover {
+    background-color: #42358C;
+    color: #7C7AED;
+    box-shadow: 6px 6px 0px #7C7AED;
+}
+
+.boutongerer2 {
+    width: 30%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Meera Inimai", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    background-color: #F8BB02;
+    box-shadow: 6px 6px 0px #42358C;
+    border: none;
+    border-radius: 20px;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: 0.6s;
+}
+
+.boutongerer2:hover {
+    background-color: #42358C;
+    color: #F8BB02;
+    box-shadow: 6px 6px 0px #F8BB02;
+}
+
+.boutongerer3 {
+    width: 30%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Meera Inimai", sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    background-color: #F28A02;
+    box-shadow: 6px 6px 0px #42358C;
+    border: none;
+    border-radius: 20px;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    transition: 0.6s;
+}
+
+.boutongerer3:hover {
+    background-color: #42358C;
+    color: #F28A02;
+    box-shadow: 6px 6px 0px #F28A02;
+}

@@ -1,0 +1,218 @@
+/*GERER LES PARCOURS*/
+
+.grand-conteneur {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+}
+
+.trrid, .nomid{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trrnom, .nomnom{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trrdescription, .nomdescription{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trrlat, .nommarqueur{
+    width: 30%;
+}
+
+.trrbouton, .nomaction{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteneur de la table */
+.tablee {
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.tablee ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* En-tête du tableau */
+.noms {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Cantarell", sans-serif;
+    font-size: large;
+    background-color: white;
+    color: #2E1A6D;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Lignes des données */
+.trr {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Cantarell", sans-serif;
+    background-color: white;
+    padding: 15px;
+    border-bottom: 1px solid rgba(66, 53, 140, 0.2);
+    margin: 0 0;
+}
+
+/* Alignement des boutons */
+.trrbouton {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Pour le formulaire */
+.link-back {
+    display: inline-block;
+    background-color: #2E1A6D;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: "Cantarell", sans-serif;
+    border-radius: 12px;
+    text-align: center;
+    margin: 10px auto;
+    transition: all 0.3s ease-in-out;
+    width: auto;
+    min-width: 140px;
+}
+
+.link-back:hover {
+    transform: scale(1.1);
+}
+
+.h3_show {
+    text-align: center;
+    color: #4A4A8A;
+    font-size: 20px;
+    font-family: "Cantarell", sans-serif;
+    margin-top: 20px;
+}
+
+.ul_show {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ul_show li {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ul_show li strong {
+    font-size: 18px;
+    color: #42358C;
+}
+
+
+.btn_show {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px; 
+    text-decoration: none;
+    font-family: "Cantarell", sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+    transition: transform 0.2s ease;
+    width: auto; 
+    min-width: 120px; 
+}
+
+.btn-primary_show {
+    background: #42358C;
+    color: white;
+}
+
+.btn-secondary_show {
+    background: #E87E3B;
+    color: white;
+}
+
+.btn_show:hover {
+    transform: scale(1.05);
+}
+
+
+input[type="checkbox"]+label {
+    font-family: "Meera Inimai", sans-serif;
+    font-size: 16px;
+    color: #42358C;
+}
+
+.marqueur-checkboxes {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.marqueur-checkboxes div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Taille de la case à cocher */
+.marqueur-checkboxes input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Style du texte des marqueurs */
+.marqueur-checkboxes label {
+    font-family: "Cantarell", sans-serif;
+    font-size: 16px;
+    color: #42358C;
+}
+
+.form-container button {
+    display: inline;
+}

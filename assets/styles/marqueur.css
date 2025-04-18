@@ -1,0 +1,158 @@
+/* Marqueurs*/
+.tablemarqueur {
+    width: 45%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.trr {
+    background-color: white;
+}
+
+.marque {
+    width: 90%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #42358C;
+    color: white;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    align-items: center;
+    font-family: "Cantarell", sans-serif;
+}
+
+.marque2 {
+    width: 90%;
+    font-family: "Cantarell", sans-serif;
+    color: #42358C;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 4px;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.marqueid{
+    width: 5%;
+    margin: 3px;
+}
+
+.marquelat{
+    width: 10%;
+    margin: 3px;
+}
+
+.marquelon{
+    width: 10%;
+    margin: 3px;
+}
+
+.marquetitre{
+    width: 15%;
+    margin: 3px;
+}
+
+.marquedesc{
+    width: 20%;
+    margin:10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.marqueimg{
+    width: 20%;
+    margin: 3px;
+}
+
+.marqueaction{
+    width: 10%;
+    margin: 3px;
+}
+
+.trrboutonn {
+    width: 10%;
+    font-size: 25px;
+    margin: 3px;
+}
+
+.trbouton {
+    color: #42358C;
+}
+
+.imag {
+    width: 250px;
+    height: 150px;
+}
+
+.ulli {
+    list-style: none;
+    color: #42358C;
+    padding: 0;
+    margin: 8px;
+}
+
+.ulli li:first-child {
+    font-weight: bold;
+}
+
+/* pour le formulaire de création*/
+.new-marq {
+    background-color: white;
+    width: 40%;
+    border-radius: 20px;
+}
+
+.labenregistrer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.btn-primary_show {
+    background: #42358C;
+    color: white;
+}
+
+.btn_show {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px; 
+    text-decoration: none;
+    font-family: "Cantarell", sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+    transition: transform 0.2s ease;
+    width: auto; 
+    min-width: 120px; 
+}
+
+.btn-new-discussion {
+    margin-top: 15px;
+}
+
+label {
+    font-family: "Cantarell", sans-serif;
+}
+
+input::placeholder {
+    color: white;
+}

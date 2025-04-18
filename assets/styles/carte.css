@@ -1,0 +1,219 @@
+/* -- CARTE -- */
+.map {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#carte {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Navbar */
+.nav {
+    display: flex;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 2px;
+    left: 50%;
+    z-index: 1000;
+    gap : 100px;
+}
+
+.nav-links-container {
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: solid 2px #7C7AED;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #7C7AED;
+    font-size: 40px;
+    transition: color 0.3s ease;
+}
+.nav a:hover {
+    color: #42358C;
+}
+
+/* Conteneur pour le bouton hamburger */
+.hamburger-container {
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: solid 2px #F28A02;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #F28A02;
+    transition: 0.3s;
+}
+
+/* Conteneur des parcours */
+#parcours-container {
+    position: fixed;
+    top: 0;
+    left: -800px;
+    width: 300px;
+    height: 100%;
+    background: #F28A02;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: left 0.5s ease;
+}
+
+#parcours-container.show {
+    left: 0;
+}
+
+#parcours-list {
+    list-style: none;
+    padding: 0;
+}
+
+h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: "Meera Inimai",sans-serif;
+    color: #F45D05;
+}
+
+#parcours-list li {
+    margin: 10px 5px;
+    padding: 15px 5px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.6s;
+}
+#parcours-list li a{
+    color: #20807D;
+}
+
+#parcours-list li a:hover {
+    color: white;
+}
+
+.btn_show2 {
+    display: inline-block;
+    background-color: white;
+    border: solid 2px #20807D;
+    padding: 8px 12px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: "Cantarell", sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+    transition: transform 0.2s ease;
+    width: auto;
+    min-width: 120px;
+}
+.btn_show2:hover {
+    transform: scale(1.05);
+    background-color: #20807D;
+    border: solid 2px #20807D;
+}
+
+/* Boutons pour ajouter marqueurs/parcours pour l'admin/user */
+#actions-container {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    background: white;
+    border-radius: 20px;
+    padding: 10px 10px;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#actions-container a {
+    color: white;
+}
+
+.action-btn {
+    background-color: #7C7AED;
+    padding: 15px 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+
+.action-btn:hover {
+    background-color: #42358C;
+}
+
+/* Fenêtre infomations pour les lieu => InfoWindow (script.js) */
+.info-window {
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 20px;
+    font-family: "Cantarell", sans-serif;
+}
+
+.info-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #F45D05;
+}
+
+.info-description {
+    font-size: 0.9em;
+}
+
+.info-coordinates {
+    font-size: 0.8em;
+    color: #F28A02;
+}
+
+.info-image {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
